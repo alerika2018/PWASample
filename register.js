@@ -7,7 +7,7 @@ if ('serviceWorker' in navigator) {
 
     });
     // then register our service worker
-    navigator.serviceWorker.register('./sw.js', { scope: '/' })
+    navigator.serviceWorker.register('./sw.js', { scope: '/PWASample/' })
       .then(function (reg) {
         // display a success message
         console.log(`Service Worker Registration (Scope: ${reg.scope})`);
