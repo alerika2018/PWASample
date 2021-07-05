@@ -9,7 +9,7 @@ function getImgData(imgPreview,filePicker) {
             const files = filePicker.files[i];      
             fileReader.readAsDataURL(files);
             fileReader.addEventListener("load", function () {
-            imgPreview.style.display = "block";
+            imgPreview.style.display = "flex";
             imgPreview.innerHTML += '<img src="' + this.result + '" />';
           });  
         }        
