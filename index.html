@@ -8,30 +8,60 @@
     <link rel="manifest" href="manifest.webmanifest">
     <script src="register.js" defer></script>
 
+    <script>
+        let picSelect = (inputElement) =>{
+    
+            new Promise(function(resolve, reject) {
+
+            const filePicker = document.querySelector("input");
+
+            if (!filePicker || !filePicker.files || filePicker.files.length <= 0) 
+            {
+                reject("No file selected.");
+                return;
+                }
+            else{
+                console.log(filePicker.files[0].name)
+                resolve();
+            }
+
+            })
+        }
+    
+    </script>
+
   
 </head>
 <body>
     
 
-    <input type="file" accept="image/x-png,image/jpeg,image/gif" onChange="() => this.upload()"/>
+    <input type="file" accept="image/x-png,image/jpeg,image/gif" onChange= "picSelect(this)"'>
 
-    <script>
+
+    
+
+
+    <!-- <script>
     
     let upload = new Promise(function(resolve, reject) {
+        
         return new Promise()(async (resolve, reject) => {
+            console.log("entro")
             const filePicker = document.querySelector('input');
-    
+            console.log (filePicker.files )
             if (!filePicker || !filePicker.files 
                 || filePicker.files.length <= 0) {
                 reject('No file selected.');
                 return;
             }
+            console.log (filePicker.files )
             const myFile = filePicker.files[0];
             console.log(myFile);
     
             resolve();
         });
-    })
+    });
+    </script> -->
     
 </body>
 </html>
