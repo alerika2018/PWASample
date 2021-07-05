@@ -7,38 +7,67 @@
     <title>Document</title>
     <link rel="manifest" href="manifest.webmanifest">
     <script src="register.js" defer></script>
+    <script src="picPreview.js" defer></script>
 
-    <script>
-        let picSelect = (inputElement) =>{
-    
-            new Promise(function(resolve, reject) {
-
-            const filePicker = document.querySelector("input");
-
-            if (!filePicker || !filePicker.files || filePicker.files.length <= 0) 
-            {
-                reject("No file selected.");
-                return;
-                }
-            else{
-                console.log(filePicker.files[0].name)
-                alert(filePicker.files[0].name);
-                resolve();
-            }
-
-            })
-        }
-    
-    </script>
 
   
 </head>
 <body>
     
+    <div id="imgSelected"></div>
 
-    <input type="file" accept="image/x-png,image/jpeg,image/gif" onChange= "picSelect(this)"'>
+    <input type="file" accept="image/x-png,image/jpeg,image/gif" multiple id="choose-file" >
+
+    <script>
+
+        // let picSelect = (inputElement) =>{
+        //     let arrPic=[];
+        //     new Promise(function(resolve, reject) {
+
+        //     const filePicker = document.querySelector("input");
+
+        //     if (!filePicker || !filePicker.files || filePicker.files.length <= 0) 
+        //     {
+        //         reject("No file selected.");
+        //         return;
+        //         }
+        //     else{
+        //         for(let i=0; i<filePicker.files.length;i++){
+        //             arrPic.push(filePicker.files[i])
+        //         }
+                
+        //         console.log(arrPic)
+        //         // alert(filePicker.files[0].name);q
+        //         resolve(arrPic);
+
+        //         return arrPic;
+        //     }
+
+        //     })
+        // }
 
 
+
+//         function getImgData(imgPreview,filePicker) {
+//   const files = filePicker.files[0];
+//   if (files) {
+//     const fileReader = new FileReader();
+//     fileReader.readAsDataURL(files);
+//     fileReader.addEventListener("load", function () {
+//       imgPreview.style.display = "block";
+//       imgPreview.innerHTML = '<img src="' + this.result + '" />';
+//     });    
+//   }
+// }
+
+const chooseFile = document.getElementById("choose-file");
+const imgPreview = document.getElementById("imgSelected");
+
+chooseFile.addEventListener("change", function () {
+  getImgData(imgPreview,chooseFile);
+});
+    
+    </script>
     
 
 
